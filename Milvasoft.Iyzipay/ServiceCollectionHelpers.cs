@@ -8,7 +8,8 @@ namespace Milvasoft.Iyzipay
     public static class ServiceCollectionHelpers
     {
         /// <summary>
-        /// Adds scheduled cron job to application.
+        /// Adds iyzipay services to <see cref="IServiceCollection"/>.
+        /// You can define <see cref="RestHttpClient"/> and <see cref="RestHttpClientV2"/> lifetimes. 
         /// </summary>
         /// <typeparam name="TJob"></typeparam>
         /// <param name="services"></param>
