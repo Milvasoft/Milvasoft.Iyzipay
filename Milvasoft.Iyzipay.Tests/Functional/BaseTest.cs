@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using NUnit.Framework;
 using System.Diagnostics;
+using System.Net.Http;
 
 namespace Milvasoft.Iyzipay.Tests.Functional
 {
