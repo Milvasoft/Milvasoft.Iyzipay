@@ -26,6 +26,8 @@ namespace Milvasoft.Iyzipay
 
             services = services.AddSingleton<IOptions>(config);
 
+            services = services.AddHttpClient();
+
             services = config.RestHttpClientLifeTime switch
             {
                 ServiceLifetime.Singleton => services.AddSingleton<IRestHttpClient, RestHttpClient>(),
@@ -41,8 +43,6 @@ namespace Milvasoft.Iyzipay
                 ServiceLifetime.Transient => services.AddTransient<IRestHttpClientV2, RestHttpClientV2>(),
                 _ => services.AddScoped<IRestHttpClientV2, RestHttpClientV2>(),
             };
-
-            services.AddHttpClient();
 
             return services;
         }
