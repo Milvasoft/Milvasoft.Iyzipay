@@ -13,7 +13,7 @@ namespace Milvasoft.Iyzipay.Model.V2.Transaction
             _restHttpClientV2 = restHttpClientV2;
         }
 
-        public async Task<TransactionDetail> Retrieve(RetrieveTransactionDetailRequest request)
+        public async Task<TransactionDetail> RetrieveAsync(RetrieveTransactionDetailRequest request)
         {
             string url = "/v2/reporting/payment/details?paymentConversationId=" + request.PaymentConversationId;
             return await _restHttpClientV2.GetAsync<TransactionDetail>(url, request, false).ConfigureAwait(false);

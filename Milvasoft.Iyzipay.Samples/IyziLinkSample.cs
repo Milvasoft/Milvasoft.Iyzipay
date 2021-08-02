@@ -29,7 +29,7 @@ namespace Milvasoft.Iyzipay.Samples
 
             var iyziLink = new IyziLink(RestHttpClientV2);
 
-            ResponseData<IyziLinkSave> response = await iyziLink.Create(request).ConfigureAwait(false);
+            ResponseData<IyziLinkSave> response = await iyziLink.CreateAsync(request).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -61,7 +61,7 @@ namespace Milvasoft.Iyzipay.Samples
 
             var iyziLink = new IyziLink(RestHttpClientV2);
 
-            ResponseData<IyziLinkSave> response = await iyziLink.Update("token", updateRequest).ConfigureAwait(false);
+            ResponseData<IyziLinkSave> response = await iyziLink.UpdateAsync("token", updateRequest).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -87,7 +87,7 @@ namespace Milvasoft.Iyzipay.Samples
 
             var iyziLink = new IyziLink(RestHttpClientV2);
 
-            ResponsePagingData<IyziLinkItem> response = await iyziLink.RetrieveAll(pagingRequest).ConfigureAwait(false);
+            ResponsePagingData<IyziLinkItem> response = await iyziLink.RetrieveAllAsync(pagingRequest).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -110,7 +110,7 @@ namespace Milvasoft.Iyzipay.Samples
 
             var iyziLink = new IyziLink(RestHttpClientV2);
 
-            ResponseData<IyziLinkItem> response = await iyziLink.Retrieve("token", requestV2).ConfigureAwait(false);
+            ResponseData<IyziLinkItem> response = await iyziLink.RetrieveAsync("token", requestV2).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -137,7 +137,7 @@ namespace Milvasoft.Iyzipay.Samples
 
             var iyziLink = new IyziLink(RestHttpClientV2);
 
-            IyzipayResourceV2 response = await iyziLink.Delete("token", requestV2).ConfigureAwait(false);
+            IyzipayResourceV2 response = await iyziLink.DeleteAsync("token", requestV2).ConfigureAwait(false);
 
             PrintResponse(response);
 

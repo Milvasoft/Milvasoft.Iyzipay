@@ -25,7 +25,7 @@ namespace Milvasoft.Iyzipay.Samples
 
             var product = new Product(RestHttpClientV2);
 
-            ResponseData<ProductResource> response = await product.Create(request).ConfigureAwait(false);
+            ResponseData<ProductResource> response = await product.CreateAsync(request).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -52,7 +52,7 @@ namespace Milvasoft.Iyzipay.Samples
             };
 
             var product = new Product(RestHttpClientV2);
-            ResponseData<ProductResource> response = await product.Update(updateProductRequest).ConfigureAwait(false);
+            ResponseData<ProductResource> response = await product.UpdateAsync(updateProductRequest).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -76,7 +76,7 @@ namespace Milvasoft.Iyzipay.Samples
 
             var product = new Product(RestHttpClientV2);
 
-            IyzipayResourceV2 response = await product.Delete(updateProductRequest).ConfigureAwait(false);
+            IyzipayResourceV2 response = await product.DeleteAsync(updateProductRequest).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -99,7 +99,7 @@ namespace Milvasoft.Iyzipay.Samples
 
             var product = new Product(RestHttpClientV2);
 
-            ResponseData<ProductResource> response = await product.Retrieve(retrieveProductRequest).ConfigureAwait(false);
+            ResponseData<ProductResource> response = await product.RetrieveAsync(retrieveProductRequest).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -122,7 +122,7 @@ namespace Milvasoft.Iyzipay.Samples
 
             var product = new Product(RestHttpClientV2);
 
-            ResponsePagingData<ProductResource> response = await product.RetrieveAll(pagingRequest).ConfigureAwait(false);
+            ResponsePagingData<ProductResource> response = await product.RetrieveAllAsync(pagingRequest).ConfigureAwait(false);
 
             PrintResponse(response);
 

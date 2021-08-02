@@ -14,31 +14,31 @@ namespace Milvasoft.Iyzipay.Model.V2.Subscription
             _restHttpClientV2 = restHttpClientV2;
         }
 
-        public async Task<ResponseData<ProductResource>> Create(CreateProductRequest request)
+        public async Task<ResponseData<ProductResource>> CreateAsync(CreateProductRequest request)
         {
             string uri = $"/v2/subscription/products";
             return await _restHttpClientV2.PostAsync<ResponseData<ProductResource>>(uri, request, true).ConfigureAwait(false);
         }
 
-        public async Task<ResponseData<ProductResource>> Update(UpdateProductRequest request)
+        public async Task<ResponseData<ProductResource>> UpdateAsync(UpdateProductRequest request)
         {
             string uri = $"/v2/subscription/products/{request.ProductReferenceCode}";
             return await _restHttpClientV2.PostAsync<ResponseData<ProductResource>>(uri, request, true).ConfigureAwait(false);
         }
 
-        public async Task<IyzipayResourceV2> Delete(DeleteProductRequest request)
+        public async Task<IyzipayResourceV2> DeleteAsync(DeleteProductRequest request)
         {
             string uri = $"/v2/subscription/products/{request.ProductReferenceCode}";
             return await _restHttpClientV2.DeleteAsync<IyzipayResourceV2>(uri, request, true).ConfigureAwait(false);
         }
 
-        public async Task<ResponseData<ProductResource>> Retrieve(RetrieveProductRequest request)
+        public async Task<ResponseData<ProductResource>> RetrieveAsync(RetrieveProductRequest request)
         {
             string uri = $"/v2/subscription/products/{request.ProductReferenceCode}";
             return await _restHttpClientV2.GetAsync<ResponseData<ProductResource>>(uri, request, false).ConfigureAwait(false);
         }
 
-        public async Task<ResponsePagingData<ProductResource>> RetrieveAll(PagingRequest request)
+        public async Task<ResponsePagingData<ProductResource>> RetrieveAllAsync(PagingRequest request)
         {
             string uri = $"/v2/subscription/products{GetQueryParams(request)}";
             return await _restHttpClientV2.GetAsync<ResponsePagingData<ProductResource>>(uri, request, false).ConfigureAwait(false);

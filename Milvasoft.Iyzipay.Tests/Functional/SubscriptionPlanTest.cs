@@ -27,7 +27,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
 
             Product product = new(RestHttpClientV2);
 
-            ResponseData<ProductResource> createProductResponse = await product.Create(createProductRequest).ConfigureAwait(false);
+            ResponseData<ProductResource> createProductResponse = await product.CreateAsync(createProductRequest).ConfigureAwait(false);
 
             CreatePlanRequest request = new()
             {
@@ -46,7 +46,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
 
             Plan plan = new(RestHttpClientV2);
 
-            ResponseData<PlanResource> response = await plan.Create(request).ConfigureAwait(false);
+            ResponseData<PlanResource> response = await plan.CreateAsync(request).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -82,7 +82,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
 
             Product product = new(RestHttpClientV2);
 
-            ResponseData<ProductResource> createProductResponse = await product.Create(createProductRequest).ConfigureAwait(false);
+            ResponseData<ProductResource> createProductResponse = await product.CreateAsync(createProductRequest).ConfigureAwait(false);
 
             CreatePlanRequest createPlanRequest = new()
             {
@@ -101,7 +101,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
 
             Plan plan = new(RestHttpClientV2);
 
-            ResponseData<PlanResource> createPlanResponse = await plan.Create(createPlanRequest).ConfigureAwait(false);
+            ResponseData<PlanResource> createPlanResponse = await plan.CreateAsync(createPlanRequest).ConfigureAwait(false);
 
             UpdatePlanRequest request = new()
             {
@@ -112,7 +112,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
                 PricingPlanReferenceCode = createPlanResponse.Data.ReferenceCode
             };
 
-            ResponseData<PlanResource> response = await plan.Update(request).ConfigureAwait(false);
+            ResponseData<PlanResource> response = await plan.UpdateAsync(request).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -147,7 +147,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
 
             Product product = new(RestHttpClientV2);
 
-            ResponseData<ProductResource> createProductResponse = await product.Create(createProductRequest).ConfigureAwait(false);
+            ResponseData<ProductResource> createProductResponse = await product.CreateAsync(createProductRequest).ConfigureAwait(false);
 
             CreatePlanRequest createPlanRequest = new()
             {
@@ -166,7 +166,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
 
             Plan plan = new(RestHttpClientV2);
 
-            ResponseData<PlanResource> createPlanResponse = await plan.Create(createPlanRequest).ConfigureAwait(false);
+            ResponseData<PlanResource> createPlanResponse = await plan.CreateAsync(createPlanRequest).ConfigureAwait(false);
 
             DeletePlanRequest request = new()
             {
@@ -175,7 +175,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
                 PricingPlanReferenceCode = createPlanResponse.Data.ReferenceCode
             };
 
-            IyzipayResourceV2 response = await plan.Delete(request).ConfigureAwait(false);
+            IyzipayResourceV2 response = await plan.DeleteAsync(request).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -199,7 +199,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
 
             Product product = new(RestHttpClientV2);
 
-            ResponseData<ProductResource> createProductResponse = await product.Create(createProductRequest).ConfigureAwait(false);
+            ResponseData<ProductResource> createProductResponse = await product.CreateAsync(createProductRequest).ConfigureAwait(false);
 
             CreatePlanRequest createPlanRequest = new()
             {
@@ -218,7 +218,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
 
             Plan plan = new(RestHttpClientV2);
 
-            ResponseData<PlanResource> createPlanResponse = await plan.Create(createPlanRequest).ConfigureAwait(false);
+            ResponseData<PlanResource> createPlanResponse = await plan.CreateAsync(createPlanRequest).ConfigureAwait(false);
 
             RetrievePlanRequest request = new()
             {
@@ -227,7 +227,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
                 PricingPlanReferenceCode = createPlanResponse.Data.ReferenceCode
             };
 
-            ResponseData<PlanResource> response = await plan.Retrieve(request).ConfigureAwait(false);
+            ResponseData<PlanResource> response = await plan.RetrieveAsync(request).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -263,7 +263,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
 
             Product product = new(RestHttpClientV2);
 
-            ResponseData<ProductResource> createProductResponse = await product.Create(createProductRequest).ConfigureAwait(false);
+            ResponseData<ProductResource> createProductResponse = await product.CreateAsync(createProductRequest).ConfigureAwait(false);
 
             CreatePlanRequest createPlanRequest = new()
             {
@@ -282,7 +282,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
 
             Plan plan = new(RestHttpClientV2);
 
-            await plan.Create(createPlanRequest).ConfigureAwait(false);
+            await plan.CreateAsync(createPlanRequest).ConfigureAwait(false);
 
             RetrieveAllPlanRequest request = new()
             {
@@ -293,7 +293,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
                 Page = 1
             };
 
-            ResponsePagingData<PlanResource> response = await plan.RetrieveAll(request).ConfigureAwait(false);
+            ResponsePagingData<PlanResource> response = await plan.RetrieveAllAsync(request).ConfigureAwait(false);
 
             PrintResponse(response);
 

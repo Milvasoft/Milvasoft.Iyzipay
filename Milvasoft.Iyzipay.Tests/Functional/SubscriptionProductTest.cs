@@ -26,7 +26,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
 
             Product product = new(RestHttpClientV2);
 
-            ResponseData<ProductResource> response = await product.Create(request).ConfigureAwait(false);
+            ResponseData<ProductResource> response = await product.CreateAsync(request).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -53,7 +53,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
 
             Product product = new(RestHttpClientV2);
 
-            ProductResource productResource = (await product.Create(createProductRequest).ConfigureAwait(false)).Data;
+            ProductResource productResource = (await product.CreateAsync(createProductRequest).ConfigureAwait(false)).Data;
 
             UpdateProductRequest updateProductRequest = new()
             {
@@ -64,7 +64,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
                 ProductReferenceCode = productResource.ReferenceCode
             };
 
-            ResponseData<ProductResource> response = await product.Update(updateProductRequest).ConfigureAwait(false);
+            ResponseData<ProductResource> response = await product.UpdateAsync(updateProductRequest).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -91,7 +91,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
 
             Product product = new(RestHttpClientV2);
 
-            ProductResource productResource = (await product.Create(createProductRequest).ConfigureAwait(false)).Data;
+            ProductResource productResource = (await product.CreateAsync(createProductRequest).ConfigureAwait(false)).Data;
 
             DeleteProductRequest updateProductRequest = new()
             {
@@ -100,7 +100,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
                 ProductReferenceCode = productResource.ReferenceCode
             };
 
-            IyzipayResourceV2 response = await product.Delete(updateProductRequest).ConfigureAwait(false);
+            IyzipayResourceV2 response = await product.DeleteAsync(updateProductRequest).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -124,7 +124,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
 
             Product product = new(RestHttpClientV2);
 
-            ProductResource productResource = (await product.Create(createProductRequest).ConfigureAwait(false)).Data;
+            ProductResource productResource = (await product.CreateAsync(createProductRequest).ConfigureAwait(false)).Data;
 
             RetrieveProductRequest retrieveProductRequest = new()
             {
@@ -133,7 +133,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
                 ProductReferenceCode = productResource.ReferenceCode
             };
 
-            ResponseData<ProductResource> response = await product.Retrieve(retrieveProductRequest).ConfigureAwait(false);
+            ResponseData<ProductResource> response = await product.RetrieveAsync(retrieveProductRequest).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -160,7 +160,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
 
             Product product = new(RestHttpClientV2);
 
-            await product.Create(createProductRequest).ConfigureAwait(false);
+            await product.CreateAsync(createProductRequest).ConfigureAwait(false);
 
             PagingRequest pagingRequest = new()
             {
@@ -170,7 +170,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
                 Count = 1
             };
 
-            ResponsePagingData<ProductResource> response = await product.RetrieveAll(pagingRequest).ConfigureAwait(false);
+            ResponsePagingData<ProductResource> response = await product.RetrieveAllAsync(pagingRequest).ConfigureAwait(false);
 
             PrintResponse(response);
 

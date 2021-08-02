@@ -14,55 +14,55 @@ namespace Milvasoft.Iyzipay.Model.V2.Subscription
             _restHttpClientV2 = restHttpClientV2;
         }
 
-        public async Task<CheckoutFormResource> InitializeCheckoutForm(InitializeCheckoutFormRequest request)
+        public async Task<CheckoutFormResource> InitializeCheckoutFormAsync(InitializeCheckoutFormRequest request)
         {
             string uri = $"/v2/subscription/checkoutform/initialize";
             return await _restHttpClientV2.PostAsync<CheckoutFormResource>(uri, request, true);
         }
 
-        public async Task<UpdateCardFormResource> UpdateCard(UpdateCardRequest request)
+        public async Task<UpdateCardFormResource> UpdateCardAsync(UpdateCardRequest request)
         {
             string uri = $"/v2/subscription/card-update/checkoutform/initialize";
             return await _restHttpClientV2.PostAsync<UpdateCardFormResource>(uri, request, true);
         }
 
-        public async Task<ResponseData<SubscriptionCreatedResource>> Initialize(SubscriptionInitializeRequest request)
+        public async Task<ResponseData<SubscriptionCreatedResource>> InitializeAsync(SubscriptionInitializeRequest request)
         {
             string uri = $"/v2/subscription/initialize";
             return await _restHttpClientV2.PostAsync<ResponseData<SubscriptionCreatedResource>>(uri, request, true);
         }
 
-        public async Task<IyzipayResourceV2> Activate(ActivateSubscriptionRequest request)
+        public async Task<IyzipayResourceV2> ActivateAsync(ActivateSubscriptionRequest request)
         {
             string uri = $"/v2/subscription/subscriptions/{request.SubscriptionReferenceCode}/activate";
             return await _restHttpClientV2.PostAsync<IyzipayResourceV2>(uri, request, true);
         }
 
-        public async Task<IyzipayResourceV2> Retry(RetrySubscriptionRequest request)
+        public async Task<IyzipayResourceV2> RetryAsync(RetrySubscriptionRequest request)
         {
             string uri = $"/v2/subscription/operation/retry";
             return await _restHttpClientV2.PostAsync<IyzipayResourceV2>(uri, request, true);
         }
 
-        public async Task<IyzipayResourceV2> Upgrade(UpgradeSubscriptionRequest request)
+        public async Task<IyzipayResourceV2> UpgradeAsync(UpgradeSubscriptionRequest request)
         {
             string uri = $"/v2/subscription/subscriptions/{request.SubscriptionReferenceCode}/upgrade";
             return await _restHttpClientV2.PostAsync<IyzipayResourceV2>(uri, request, true);
         }
 
-        public async Task<IyzipayResourceV2> Cancel(CancelSubscriptionRequest request)
+        public async Task<IyzipayResourceV2> CancelAsync(CancelSubscriptionRequest request)
         {
             string uri = $"/v2/subscription/subscriptions/{request.SubscriptionReferenceCode}/cancel";
             return await _restHttpClientV2.PostAsync<IyzipayResourceV2>(uri, request, true);
         }
 
-        public async Task<ResponseData<SubscriptionResource>> Retrieve(RetrieveSubscriptionRequest request)
+        public async Task<ResponseData<SubscriptionResource>> RetrieveAsync(RetrieveSubscriptionRequest request)
         {
             string uri = $"/v2/subscription/subscriptions/{request.SubscriptionReferenceCode}";
             return await _restHttpClientV2.GetAsync<ResponseData<SubscriptionResource>>(uri, request, false);
         }
 
-        public async Task<ResponsePagingData<SubscriptionResource>> Search(SearchSubscriptionRequest request)
+        public async Task<ResponsePagingData<SubscriptionResource>> SearchAsync(SearchSubscriptionRequest request)
         {
             string uri = $"/v2/subscription/subscriptions{GetQueryParams(request)}";
             return await _restHttpClientV2.GetAsync<ResponsePagingData<SubscriptionResource>>(uri, request, false);

@@ -20,7 +20,7 @@ namespace Milvasoft.Iyzipay.Samples
 
             var transactionReport = new TransactionReport(RestHttpClientV2);
 
-            transactionReport = await transactionReport.Retrieve(request).ConfigureAwait(false);
+            transactionReport = await transactionReport.RetrieveAsync(request).ConfigureAwait(false);
 
             PrintResponse(transactionReport);
 

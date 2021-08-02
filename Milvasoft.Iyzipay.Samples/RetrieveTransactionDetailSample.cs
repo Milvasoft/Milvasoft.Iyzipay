@@ -18,7 +18,7 @@ namespace Milvasoft.Iyzipay.Samples
 
             var transactionDetail = new TransactionDetail(RestHttpClientV2);
 
-            transactionDetail = await transactionDetail.Retrieve(request).ConfigureAwait(false);
+            transactionDetail = await transactionDetail.RetrieveAsync(request).ConfigureAwait(false);
 
             PrintResponse(transactionDetail);
 

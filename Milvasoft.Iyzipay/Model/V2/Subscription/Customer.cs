@@ -14,25 +14,25 @@ namespace Milvasoft.Iyzipay.Model.V2.Subscription
             _restHttpClientV2 = restHttpClientV2;
         }
 
-        public async Task<ResponseData<CustomerResource>> Create(CreateCustomerRequest request)
+        public async Task<ResponseData<CustomerResource>> CreateAsync(CreateCustomerRequest request)
         {
             string uri = $"/v2/subscription/customers";
             return await _restHttpClientV2.PostAsync<ResponseData<CustomerResource>>(uri, request, true).ConfigureAwait(false);
         }
 
-        public async Task<ResponseData<CustomerResource>> Update(UpdateCustomerRequest request)
+        public async Task<ResponseData<CustomerResource>> UpdateAsync(UpdateCustomerRequest request)
         {
             string uri = $"/v2/subscription/customers/{request.CustomerReferenceCode}";
             return await _restHttpClientV2.PostAsync<ResponseData<CustomerResource>>(uri, request, true).ConfigureAwait(false);
         }
 
-        public async Task<ResponseData<CustomerResource>> Retrieve(RetrieveCustomerRequest request)
+        public async Task<ResponseData<CustomerResource>> RetrieveAsync(RetrieveCustomerRequest request)
         {
             string uri = $"/v2/subscription/customers/{request.CustomerReferenceCode}";
             return await _restHttpClientV2.GetAsync<ResponseData<CustomerResource>>(uri, request, false).ConfigureAwait(false);
         }
 
-        public async Task<ResponsePagingData<CustomerResource>> RetrieveAll(PagingRequest request)
+        public async Task<ResponsePagingData<CustomerResource>> RetrieveAllAsync(PagingRequest request)
         {
             string uri = $"/v2/subscription/customers{GetQueryParams(request)}";
             return await _restHttpClientV2.GetAsync<ResponsePagingData<CustomerResource>>(uri, request, false).ConfigureAwait(false);

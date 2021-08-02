@@ -33,7 +33,7 @@ namespace Milvasoft.Iyzipay.Samples
 
             var plan = new Plan(RestHttpClientV2);
 
-            ResponseData<PlanResource> response = await plan.Create(request).ConfigureAwait(false);
+            ResponseData<PlanResource> response = await plan.CreateAsync(request).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -69,7 +69,7 @@ namespace Milvasoft.Iyzipay.Samples
 
             var plan = new Plan(RestHttpClientV2);
 
-            ResponseData<PlanResource> response = await plan.Update(request).ConfigureAwait(false);
+            ResponseData<PlanResource> response = await plan.UpdateAsync(request).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -95,7 +95,7 @@ namespace Milvasoft.Iyzipay.Samples
 
             var plan = new Plan(RestHttpClientV2);
 
-            IyzipayResourceV2 response = await plan.Delete(request).ConfigureAwait(false);
+            IyzipayResourceV2 response = await plan.DeleteAsync(request).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -116,7 +116,7 @@ namespace Milvasoft.Iyzipay.Samples
 
             var plan = new Plan(RestHttpClientV2);
 
-            ResponseData<PlanResource> response = await plan.Retrieve(request).ConfigureAwait(false);
+            ResponseData<PlanResource> response = await plan.RetrieveAsync(request).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -142,7 +142,7 @@ namespace Milvasoft.Iyzipay.Samples
 
             var plan = new Plan(RestHttpClientV2);
 
-            ResponsePagingData<PlanResource> response = await plan.RetrieveAll(request).ConfigureAwait(false);
+            ResponsePagingData<PlanResource> response = await plan.RetrieveAllAsync(request).ConfigureAwait(false);
 
             PrintResponse(response);
 

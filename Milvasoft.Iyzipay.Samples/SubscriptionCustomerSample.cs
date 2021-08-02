@@ -45,7 +45,7 @@ namespace Milvasoft.Iyzipay.Samples
 
             var subMerchant = new Customer(RestHttpClientV2);
 
-            ResponseData<CustomerResource> response = await subMerchant.Create(createCustomerRequest).ConfigureAwait(false);
+            ResponseData<CustomerResource> response = await subMerchant.CreateAsync(createCustomerRequest).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -103,7 +103,7 @@ namespace Milvasoft.Iyzipay.Samples
 
             var subMerchant = new Customer(RestHttpClientV2);
 
-            ResponseData<CustomerResource> response = await subMerchant.Update(updateCustomerRequest).ConfigureAwait(false);
+            ResponseData<CustomerResource> response = await subMerchant.UpdateAsync(updateCustomerRequest).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -140,7 +140,7 @@ namespace Milvasoft.Iyzipay.Samples
 
             var subMerchant = new Customer(RestHttpClientV2);
 
-            ResponseData<CustomerResource> response = await subMerchant.Retrieve(retrieveCustomerRequest).ConfigureAwait(false);
+            ResponseData<CustomerResource> response = await subMerchant.RetrieveAsync(retrieveCustomerRequest).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -163,7 +163,7 @@ namespace Milvasoft.Iyzipay.Samples
 
             var subMerchant = new Customer(RestHttpClientV2);
 
-            ResponsePagingData<CustomerResource> response = await subMerchant.RetrieveAll(pagingRequest).ConfigureAwait(false);
+            ResponsePagingData<CustomerResource> response = await subMerchant.RetrieveAllAsync(pagingRequest).ConfigureAwait(false);
 
             PrintResponse(response);
 

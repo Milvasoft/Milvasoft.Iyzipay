@@ -15,19 +15,19 @@ namespace Milvasoft.Iyzipay.Model.V2.Iyzilink
             _restHttpClientV2 = restHttpClientV2;
         }
 
-        public async Task<ResponseData<IyziLinkSave>> Create(IyziLinkSaveRequest request)
+        public async Task<ResponseData<IyziLinkSave>> CreateAsync(IyziLinkSaveRequest request)
         {
             string uri = V2_IYZILINK_PRODUCTS + GetQueryParams(request);
             return await _restHttpClientV2.PostAsync<ResponseData<IyziLinkSave>>(uri, request, true).ConfigureAwait(false);
         }
 
-        public async Task<ResponseData<IyziLinkSave>> Update(string token, IyziLinkSaveRequest request)
+        public async Task<ResponseData<IyziLinkSave>> UpdateAsync(string token, IyziLinkSaveRequest request)
         {
             string uri = V2_IYZILINK_PRODUCTS + "/" + token + GetQueryParams(request);
             return await _restHttpClientV2.PutAsync<ResponseData<IyziLinkSave>>(uri, request, true).ConfigureAwait(false);
         }
 
-        public async Task<ResponsePagingData<IyziLinkItem>> RetrieveAll(PagingRequest request)
+        public async Task<ResponsePagingData<IyziLinkItem>> RetrieveAllAsync(PagingRequest request)
         {
             string queryParams = GetQueryParams(request);
             string iyzilinkQueryParam = "productType=IYZILINK";
@@ -40,13 +40,13 @@ namespace Milvasoft.Iyzipay.Model.V2.Iyzilink
             return await _restHttpClientV2.GetAsync<ResponsePagingData<IyziLinkItem>>(uri, request, false).ConfigureAwait(false);
         }
 
-        public async Task<ResponseData<IyziLinkItem>> Retrieve(string token, BaseRequestV2 request)
+        public async Task<ResponseData<IyziLinkItem>> RetrieveAsync(string token, BaseRequestV2 request)
         {
             string uri = V2_IYZILINK_PRODUCTS + "/" + token + GetQueryParams(request);
             return await _restHttpClientV2.GetAsync<ResponseData<IyziLinkItem>>(uri, request, false).ConfigureAwait(false);
         }
 
-        public async Task<IyzipayResourceV2> Delete(string token, BaseRequestV2 request)
+        public async Task<IyzipayResourceV2> DeleteAsync(string token, BaseRequestV2 request)
         {
             string uri = V2_IYZILINK_PRODUCTS + "/" + token + GetQueryParams(request);
             return await _restHttpClientV2.DeleteAsync<IyzipayResourceV2>(uri, request, true).ConfigureAwait(false);

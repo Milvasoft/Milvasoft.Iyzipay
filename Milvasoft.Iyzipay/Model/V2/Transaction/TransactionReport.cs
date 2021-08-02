@@ -14,7 +14,7 @@ namespace Milvasoft.Iyzipay.Model.V2.Transaction
         }
 
 
-        public async Task<TransactionReport> Retrieve(RetrieveTransactionReportRequest request)
+        public async Task<TransactionReport> RetrieveAsync(RetrieveTransactionReportRequest request)
         {
             string url = "/v2/reporting/payment/transactions?transactionDate="
                             + request.TransactionDate

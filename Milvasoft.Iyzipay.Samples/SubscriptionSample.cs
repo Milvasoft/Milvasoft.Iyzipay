@@ -52,7 +52,7 @@ namespace Milvasoft.Iyzipay.Samples
 
             var subscription = new Subscription(RestHttpClientV2);
 
-            CheckoutFormResource response = await subscription.InitializeCheckoutForm(request).ConfigureAwait(false);
+            CheckoutFormResource response = await subscription.InitializeCheckoutFormAsync(request).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -111,7 +111,7 @@ namespace Milvasoft.Iyzipay.Samples
 
             var subscription = new Subscription(RestHttpClientV2);
 
-            ResponseData<SubscriptionCreatedResource> response = await subscription.Initialize(request).ConfigureAwait(false);
+            ResponseData<SubscriptionCreatedResource> response = await subscription.InitializeAsync(request).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -140,7 +140,7 @@ namespace Milvasoft.Iyzipay.Samples
 
             var subscription = new Subscription(RestHttpClientV2);
 
-            IyzipayResourceV2 response = await subscription.Activate(request);
+            IyzipayResourceV2 response = await subscription.ActivateAsync(request);
 
             PrintResponse(response);
 
@@ -161,7 +161,7 @@ namespace Milvasoft.Iyzipay.Samples
 
             var subscription = new Subscription(RestHttpClientV2);
 
-            IyzipayResourceV2 response = await subscription.Retry(request).ConfigureAwait(false);
+            IyzipayResourceV2 response = await subscription.RetryAsync(request).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -186,7 +186,7 @@ namespace Milvasoft.Iyzipay.Samples
 
             var subscription = new Subscription(RestHttpClientV2);
 
-            IyzipayResourceV2 response = await subscription.Upgrade(request).ConfigureAwait(false);
+            IyzipayResourceV2 response = await subscription.UpgradeAsync(request).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -207,7 +207,7 @@ namespace Milvasoft.Iyzipay.Samples
 
             var subscription = new Subscription(RestHttpClientV2);
 
-            IyzipayResourceV2 response = await subscription.Cancel(request).ConfigureAwait(false);
+            IyzipayResourceV2 response = await subscription.CancelAsync(request).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -228,7 +228,7 @@ namespace Milvasoft.Iyzipay.Samples
 
             var subscription = new Subscription(RestHttpClientV2);
 
-            ResponseData<SubscriptionResource> response = await subscription.Retrieve(request).ConfigureAwait(false);
+            ResponseData<SubscriptionResource> response = await subscription.RetrieveAsync(request).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -254,7 +254,7 @@ namespace Milvasoft.Iyzipay.Samples
 
             var subscription = new Subscription(RestHttpClientV2);
 
-            ResponsePagingData<SubscriptionResource> response = await subscription.Search(request).ConfigureAwait(false);
+            ResponsePagingData<SubscriptionResource> response = await subscription.SearchAsync(request).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -282,7 +282,7 @@ namespace Milvasoft.Iyzipay.Samples
 
             var subscription = new Subscription(RestHttpClientV2);
 
-            UpdateCardFormResource response = await subscription.UpdateCard(request).ConfigureAwait(false);
+            UpdateCardFormResource response = await subscription.UpdateCardAsync(request).ConfigureAwait(false);
 
             PrintResponse(response);
 

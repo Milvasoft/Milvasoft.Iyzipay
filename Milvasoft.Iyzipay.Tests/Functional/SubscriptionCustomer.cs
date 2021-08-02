@@ -45,7 +45,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
 
             Customer customer = new(RestHttpClientV2);
 
-            ResponseData<CustomerResource> response = await customer.Create(createCustomerRequest).ConfigureAwait(false);
+            ResponseData<CustomerResource> response = await customer.CreateAsync(createCustomerRequest).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -104,7 +104,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
 
             Customer customer = new(RestHttpClientV2);
 
-            ResponseData<CustomerResource> createCustomerResponse = await customer.Create(createCustomerRequest).ConfigureAwait(false);
+            ResponseData<CustomerResource> createCustomerResponse = await customer.CreateAsync(createCustomerRequest).ConfigureAwait(false);
 
             UpdateCustomerRequest updateCustomerRequest = new()
             {
@@ -134,7 +134,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
 
             customer = new(RestHttpClientV2);
 
-            ResponseData<CustomerResource> response = await customer.Update(updateCustomerRequest).ConfigureAwait(false);
+            ResponseData<CustomerResource> response = await customer.UpdateAsync(updateCustomerRequest).ConfigureAwait(false);
             PrintResponse(response);
 
             Assert.AreEqual(Status.SUCCESS.ToString(), response.Status);
@@ -192,7 +192,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
 
             Customer customer = new(RestHttpClientV2);
 
-            ResponseData<CustomerResource> createCustomerResponse = await customer.Create(createCustomerRequest).ConfigureAwait(false);
+            ResponseData<CustomerResource> createCustomerResponse = await customer.CreateAsync(createCustomerRequest).ConfigureAwait(false);
 
             RetrieveCustomerRequest retrieveCustomerRequest = new()
             {
@@ -201,7 +201,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
                 CustomerReferenceCode = createCustomerResponse.Data.ReferenceCode
             };
 
-            ResponseData<CustomerResource> response = await customer.Retrieve(retrieveCustomerRequest).ConfigureAwait(false);
+            ResponseData<CustomerResource> response = await customer.RetrieveAsync(retrieveCustomerRequest).ConfigureAwait(false);
 
             PrintResponse(response);
 
@@ -260,7 +260,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
 
             Customer customer = new(RestHttpClientV2);
 
-            await customer.Create(createCustomerRequest).ConfigureAwait(false);
+            await customer.CreateAsync(createCustomerRequest).ConfigureAwait(false);
 
             PagingRequest pagingRequest = new()
             {
@@ -270,7 +270,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
                 Count = 1
             };
 
-            ResponsePagingData<CustomerResource> response = await customer.RetrieveAll(pagingRequest).ConfigureAwait(false);
+            ResponsePagingData<CustomerResource> response = await customer.RetrieveAllAsync(pagingRequest).ConfigureAwait(false);
 
             PrintResponse(response);
 
