@@ -4,6 +4,12 @@
 
 Unofficial Iyzipay client library that is maintained by Milvasoft, a fork of the iyzipay-dotnet
 
+All methods have been rearranged to use async await.
+
+The dispose pattern has been implemented in the class where the request was sent. This class can be disposed according to optional usage. The HttpRequestMessage and HttpResponse message objects created in each request were disposed of as a result of the request.
+
+Required dependency injection operations in Iyzico API integration have been adapted to the .net core structure.
+
 Supports .Net 5.0
 
 You can sign up for an iyzico account at https://iyzico.com
@@ -69,6 +75,8 @@ public async Task<IActionResult> CancelPaymentAsync()
     var cancel = new Cancel(_restHttpClient);
     
     cancel = await cancel.CreateAsync(request).ConfigureAwait(false);
+    
+    _restHttpClient.Dispose();
     
     if (cancel.Status == Status.SUCCESS.ToString())
         return Ok();
@@ -170,9 +178,13 @@ thirdBasketItem.Price = "0.2";
 basketItems.Add(thirdBasketItem);
 request.BasketItems = basketItems;
 
-var payment = new Payment(new RequestHttpClient(new HttpClient(),options))
+var client = new RequestHttpClient(new HttpClient(),options);
+
+var payment = new Payment(client);
 
 payment = await payment.CreateAsync(request).ConfigureAwait(false);
+
+client.Dispose();
 
 ```
 See other samples under Milvasoft.Iyzipay.Samples project.
