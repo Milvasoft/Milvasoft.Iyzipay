@@ -2,6 +2,8 @@
 
 [![NuGet](https://img.shields.io/nuget/v/Milvasoft.Iyzipay)](https://www.nuget.org/packages/Milvasoft.Iyzipay/)
 
+[![NuGet](https://img.shields.io/nuget/dt/Milvasoft.Iyzipay)](https://www.nuget.org/packages/Milvasoft.Iyzipay/)
+
 Unofficial Iyzipay client library that is maintained by Milvasoft, a fork of the iyzipay-dotnet
 
 All methods have been rearranged to use async await.
