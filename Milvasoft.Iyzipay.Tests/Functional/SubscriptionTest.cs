@@ -192,6 +192,96 @@ namespace Milvasoft.Iyzipay.Tests.Functional
             Assert.NotNull(response.Data.StartDate);
 
         }
+        
+        [Test]
+        public async Task Should_Get_CheckoutForm_With_Token()
+        {
+            string randomString = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+
+            CreateProductRequest createProductRequest = new()
+            {
+                Description = "product-description",
+                Locale = Locale.TR.ToString(),
+                Name = $"product-name-{randomString}",
+                ConversationId = "123456789"
+            };
+
+            Product product = new(RestHttpClientV2);
+
+            ResponseData<ProductResource> createProductResponse = await product.CreateAsync(createProductRequest).ConfigureAwait(false);
+
+            CreatePlanRequest createPlanRequest = new()
+            {
+                Locale = Locale.TR.ToString(),
+                Name = $"plan-name-{randomString}",
+                ConversationId = "123456789",
+                TrialPeriodDays = 3,
+                Price = "5.23",
+                CurrencyCode = Currency.TRY.ToString(),
+                PaymentInterval = PaymentInterval.WEEKLY.ToString(),
+                RecurrenceCount = 12,
+                PaymentIntervalCount = 1,
+                PlanPaymentType = PlanPaymentType.RECURRING.ToString(),
+                ProductReferenceCode = createProductResponse.Data.ReferenceCode
+            };
+
+            Plan plan = new(RestHttpClientV2);
+
+            PlanResource planResource = (await plan.CreateAsync(createPlanRequest).ConfigureAwait(false)).Data;
+
+            InitializeCheckoutFormRequest request = new()
+            {
+                Locale = Locale.TR.ToString(),
+                Customer = new CheckoutFormCustomer
+                {
+                    Email = $"iyzico-{randomString}@iyzico.com",
+                    Name = "customer-name",
+                    Surname = "customer-surname",
+                    BillingAddress = new Address
+                    {
+                        City = "İstanbul",
+                        Country = "Türkiye",
+                        Description = "billing-address-description",
+                        ContactName = "billing-contact-name",
+                        ZipCode = "010101"
+                    },
+                    ShippingAddress = new Address
+                    {
+                        City = "İstanbul",
+                        Country = "Türkiye",
+                        Description = "shipping-address-description",
+                        ContactName = "shipping-contact-name",
+                        ZipCode = "010102"
+                    },
+                    GsmNumber = "+905350000000",
+                    IdentityNumber = "55555555555",
+                },
+                CallbackUrl = "https://www.google.com",
+                ConversationId = "123456789",
+                PricingPlanReferenceCode = planResource.ReferenceCode,
+                SubscriptionInitialStatus = SubscriptionStatus.PENDING.ToString()
+            };
+
+            Subscription subscription = new(RestHttpClientV2);
+
+            CheckoutFormResource response = await subscription.InitializeCheckoutFormAsync(request).ConfigureAwait(false);
+
+            PrintResponse(response);
+            
+            RetrieveCheckoutFormResultRequest retrieveCheckoutFormResultRequest = new RetrieveCheckoutFormResultRequest
+            {
+                Locale = Locale.TR.ToString(),
+                ConversationId = "123456789",
+                Token = response.Token
+            };
+
+            SubscribeCheckoutFormResource retrieveCheckoutFormResult = await subscription.RetrieveCheckoutFormResult(retrieveCheckoutFormResultRequest);
+            
+            Assert.IsNull(retrieveCheckoutFormResult.ParentReferenceCode);
+            Assert.AreEqual(retrieveCheckoutFormResult.Status, Status.FAILURE.ToString());
+            Assert.AreEqual(retrieveCheckoutFormResult.ErrorMessage, "Ödeme formu tamamlanmamış.");
+            Assert.AreEqual(retrieveCheckoutFormResult.StatusCode, 422);
+        }
 
         [Test]
         public async Task Should_Activate_Subscription()
