@@ -26,10 +26,10 @@ namespace Milvasoft.Iyzipay.Model.V2.Subscription
             return await _restHttpClientV2.PostAsync<UpdateCardFormResource>(uri, request, true);
         }
         
-        public async Task<SubscribeCheckoutFormResource> RetrieveCheckoutFormResult(RetrieveCheckoutFormResultRequest request)
+        public async Task<ResponseData<SubscriptionCreatedResource>> RetrieveCheckoutFormResult(RetrieveCheckoutFormResultRequest request)
         {
             string uri = $"/v2/subscription/checkoutform/{request.Token}";
-            return await _restHttpClientV2.GetAsync<SubscribeCheckoutFormResource>(uri, request, false);
+            return await _restHttpClientV2.GetAsync<ResponseData<SubscriptionCreatedResource>>(uri, request, false);
         }
 
         public async Task<ResponseData<SubscriptionCreatedResource>> InitializeAsync(SubscriptionInitializeRequest request)
