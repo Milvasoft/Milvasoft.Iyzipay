@@ -30,7 +30,7 @@
 		<Description>Iyzico dotnet core client. </Description>
 		<PackageTags>iyzico,iyzipay,client,netcore,dotnetcore</PackageTags>
 		<Copyright>Milvasoft Yazılım Bilişim Araştırma Geliştirme Danışmanlık Sanayi ve Ticaret Ltd.Şti.</Copyright>
-		<Version>1.0.5</Version>
+		<Version>1.0.6</Version>
 		<PackageIcon>milvalogo.png</PackageIcon>
 		<PackageIconUrl />
 
