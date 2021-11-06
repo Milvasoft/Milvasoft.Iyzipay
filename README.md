@@ -28,7 +28,7 @@ For now you'll need to install following libraries:
 ```
 Install-Package Milvasoft.Iyzipay
 ```
- Or you can download the latest .dll from:  https://github.com/Milvasoft/Milvasoft.Iyzipay
+ Or you can download the latest .dll from [Github](https://github.com/Milvasoft/Milvasoft.Iyzipay)
 
 # Milvasoft.Iyzipay Usage
 
