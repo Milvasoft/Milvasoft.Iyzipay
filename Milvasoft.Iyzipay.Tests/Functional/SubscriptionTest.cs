@@ -277,7 +277,6 @@ namespace Milvasoft.Iyzipay.Tests.Functional
 
             var retrieveCheckoutFormResult = await subscription.RetrieveCheckoutFormResult(retrieveCheckoutFormResultRequest);
             
-            Assert.IsNull(retrieveCheckoutFormResult.Data);
             Assert.AreEqual(retrieveCheckoutFormResult.Status, Status.FAILURE.ToString());
             Assert.AreEqual(retrieveCheckoutFormResult.ErrorMessage, "Ödeme formu tamamlanmamış.");
             Assert.AreEqual(retrieveCheckoutFormResult.StatusCode, 422);
