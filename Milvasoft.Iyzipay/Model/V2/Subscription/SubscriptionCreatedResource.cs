@@ -2,7 +2,7 @@ using Milvasoft.Iyzipay.Utils.Concrete;
 
 namespace Milvasoft.Iyzipay.Model.V2.Subscription
 {
-    public class SubscriptionCreatedResource : IyzipayResourceV2
+    public class SubscriptionCreatedResource
     {
         public string ReferenceCode { get; set; }
         public string ParentReferenceCode { get; set; }

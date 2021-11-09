@@ -1,4 +1,4 @@
-# Milvasoft.Iyzipay Library For .Net 5
+# Milvasoft.Iyzipay Library For .Net 6
 
 [![NuGet](https://img.shields.io/nuget/v/Milvasoft.Iyzipay)](https://www.nuget.org/packages/Milvasoft.Iyzipay/)
 
@@ -12,7 +12,7 @@ The dispose pattern has been implemented in the class where the request was sent
 
 Required dependency injection operations in Iyzico API integration have been adapted to the .net core structure.
 
-Supports .Net 5.0
+Supports .Net 6.0
 
 You can sign up for an iyzico account at https://iyzico.com
 
@@ -28,7 +28,7 @@ For now you'll need to install following libraries:
 ```
 Install-Package Milvasoft.Iyzipay
 ```
- Or you can download the latest .dll from:  https://github.com/Milvasoft/Milvasoft.Iyzipay
+ Or you can download the latest .dll from [Github](https://github.com/Milvasoft/Milvasoft.Iyzipay)
 
 # Milvasoft.Iyzipay Usage
 
