@@ -51,6 +51,8 @@ In Startup.cs;
 
 ```
 
+Sample use;
+
 ```csharp 1
         
 using Milvasoft.Iyzipay.Model;
