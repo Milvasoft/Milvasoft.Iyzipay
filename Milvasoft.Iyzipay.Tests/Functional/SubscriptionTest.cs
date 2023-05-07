@@ -192,7 +192,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
             Assert.NotNull(response.Data.StartDate);
 
         }
-        
+
         [Test]
         public async Task Should_Get_CheckoutForm_With_Token()
         {
@@ -267,7 +267,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
             CheckoutFormResource response = await subscription.InitializeCheckoutFormAsync(request).ConfigureAwait(false);
 
             PrintResponse(response);
-            
+
             RetrieveCheckoutFormResultRequest retrieveCheckoutFormResultRequest = new RetrieveCheckoutFormResultRequest
             {
                 Locale = Locale.TR.ToString(),
@@ -276,7 +276,7 @@ namespace Milvasoft.Iyzipay.Tests.Functional
             };
 
             var retrieveCheckoutFormResult = await subscription.RetrieveCheckoutFormResult(retrieveCheckoutFormResultRequest);
-            
+
             Assert.AreEqual(retrieveCheckoutFormResult.Status, Status.FAILURE.ToString());
             Assert.AreEqual(retrieveCheckoutFormResult.ErrorMessage, "Ödeme formu tamamlanmamış.");
             Assert.AreEqual(retrieveCheckoutFormResult.StatusCode, 422);

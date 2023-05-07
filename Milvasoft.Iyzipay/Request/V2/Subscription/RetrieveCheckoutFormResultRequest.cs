@@ -1,5 +1,5 @@
-﻿using System;
-using Milvasoft.Iyzipay.Utils.Concrete;
+﻿using Milvasoft.Iyzipay.Utils.Concrete;
+using System;
 
 namespace Milvasoft.Iyzipay.Request.V2.Subscription
 {

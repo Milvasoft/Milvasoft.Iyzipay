@@ -1,5 +1,3 @@
-using Milvasoft.Iyzipay.Utils.Concrete;
-
 namespace Milvasoft.Iyzipay.Model.V2.Subscription
 {
     public class SubscriptionCreatedResource

@@ -127,8 +127,8 @@ namespace Milvasoft.Iyzipay.Samples
             Assert.NotNull(response.Data.TrialEndDate);
             Assert.NotNull(response.Data.StartDate);
         }
-        
-        
+
+
 
         [Test]
         public async Task Should_Activate_Subscription()
